@@ -8,11 +8,16 @@
 
 import Foundation
 
+
+func multiply(op1: Double, op2: Double) -> Double {
+    return op1 * op2
+}
+
 class CalculatorBrain
 {
     private var accumnlator = 0.0
     
-    func setOperand(_ operand: Double) {
+    func setOperand(operand: Double) {
         accumnlator = operand
         
     }
@@ -20,38 +25,48 @@ class CalculatorBrain
     var operations: Dictionary<String,Operation> = [
         "π": Operation.Constant(M_PI),
         "e": Operation.Constant(M_E),
-        "√": Operation.UnaryOperation, //sqrt,
-        "cos": Operation.UnaryOperation //cos,
+        "√": Operation.UnaryOperation(sqrt), //sqrt,
+        "cos": Operation.UnaryOperation(cos), //cos,
+        "✖️": Operation.BinaryOperation({ $0 * $1 }),
+        "➗": Operation.BinaryOperation({ $0 / $1 }),
+        "➕": Operation.BinaryOperation({ $0 + $1 }),
+        "➖": Operation.BinaryOperation({ $0 - $1 }),
+        "=": Operation.Equals
     ]
     
     enum Operation {
         case Constant(Double)
-        case UnaryOperation
-        case BinaryOperation
+        case UnaryOperation((Double) -> Double)
+        case BinaryOperation((Double, Double) -> Double)
         case Equals
     }
-    func performOperation(_ symbol: String) {
+    func performOperation(symbol: String) {
         if let operation = operations[symbol] {
             switch operation {
             case .Constant(let value):
                 accumnlator = value
-            case .UnaryOperation:
-                break
-            case .BinaryOperation:
-                break
+            case .UnaryOperation(let function):
+                accumnlator = function(accumnlator)
+            case .BinaryOperation(let function):
+                pending = PendingBinaryOperationInfo(binaryFunction: function, firstOperand: accumnlator)
             case .Equals:
-                break
+                executePendingBinaryOperation()
             }
         }
-
-//        switch symbol {
-//        case "π":
-//            accumnlator = M_PI
-//        case "√":
-//            accumnlator = sqrt(accumnlator)
-//        default:
-//            break
-//        }
+    }
+    
+    private func executePendingBinaryOperation() {
+        if pending != nil {
+            accumnlator = pending!.binaryFunction(pending!.firstOperand, accumnlator)
+            pending = nil
+        }
+    }
+    
+    private var pending: PendingBinaryOperationInfo?
+    
+    private struct PendingBinaryOperationInfo {
+        var binaryFunction: (Double, Double) -> Double
+        var firstOperand: Double
     }
     
     var result: Double {
