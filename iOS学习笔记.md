@@ -26,4 +26,30 @@
 控制器中管理的所有子控件都是该控件的子控件。
 
 
+## UIView常见的属性
+
+#### @property(nonatomic, readonly) UIView *superview;
+
+* 获取自己的父控件对象
+
+#### @property(nonatomic, readonly, copy) NSArray *subview;   
+
+* 为什么是数组呢？superview只有一个，subview可以有多个。
+* 获取所有的子控件对象
+
+#### @property(nonatomic) NSInteger tag;   
+
+* 控件的ID（标识），父控件可以通过tag来找到对应的子控件。
+
+#### @property(nonatomic) CGAffineTransform transform;   
+
+* 控件的形变属性（旋转，比例缩放，平移等属性）
+
+## UIView的常见方法：
+
+* - (void)addSubview: (UIView *)view;     //添加一个一个子控件view
+* - (void)removeFromSuperview;   // 将自己从父控件中移除。
+* 
+
+
 
