@@ -16,6 +16,7 @@
 @interface MainViewController ()
 
 // 已经有强指针指向
+// 属性
 @property(nonatomic, weak)IBOutlet UILabel *label;
 
 // 红色按钮
