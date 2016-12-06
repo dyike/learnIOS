@@ -65,4 +65,10 @@
 
 
 
+### UIImage 显示图片
+
+UIImageView是一个控件，用来显示Image的对象。
+
+
+
 
