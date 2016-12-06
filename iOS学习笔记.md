@@ -1,3 +1,5 @@
+# 第1天
+
 ## UIView（控件）
 
 #### 1 什么是控件？ 
@@ -49,13 +51,18 @@
 
 * - (void)addSubview: (UIView *)view;     //添加一个一个子控件view
 * - (void)removeFromSuperview;   // 将自己从父控件中移除。
-* - (UIView *)viewWithTag: (NSInteger)Tag
+* - (UIView *)viewWithTag: (NSInteger)Tag   // 这个玩意儿少用！原因：1 效率低，递归引用。 2 容易乱！
 
 ## UIView的常见属性
 
 * @property(nonatomic) CGRect frame;     // 控件矩形框在父控件中的位置和尺寸。（以父控件的左上角为坐标原定）
 * @property(nonatomic) CGRect bounds;    // 控件矩形框的位置和尺寸（以自己左上角为坐标原点，所以bounds的x y 一般为0）
 * @property(nonatomic) CGPonit center；   // 控件中点的位置（以父控件的左上角为坐标原点）
+
+
+
+# 第2天
+
 
 
 
