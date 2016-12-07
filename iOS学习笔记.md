@@ -63,6 +63,16 @@
 
 # 第2天
 
+## UILabel
+
+常见的属性：
+* text    // 文字
+* font    // 字体
+* textColor     // 文字颜色
+* textAlignment  // 对齐模式
+* numberOfLines  // 对齐行数
+* lineBreakMode   // 换行模式
+
 
 
 
