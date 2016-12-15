@@ -83,6 +83,27 @@ UIImageView是一个控件，用来显示Image的对象。
 ## UIButton
 
 
+## UIButton UIImageView UILabel的选择
+
+* UIButton
+	既能显示文字，又能显示图片（能显示两种图片，背景图片，内容图片）。
+	长按高亮的时候可以切换图片和文字。
+	直接通过AddTarget... 方法监听点击。
+* UIImageView
+	能显示图片，不能直接通过addTarget...方法监听点击。
+	
+* UIlabel
+	能显示文字，不能直接通过addTarget...方法监听点击。、
+	
+	
+	仅仅显示数据，不需要点击：UIImageView 或者 UILabel
+	
+	不仅显示数据，还需要监听点击：建议UIButton，其实UIImageView和UILabel也可以通过手势来识别
+	
+	长按控件后，会改变显示的内容： 不用考虑了，选择UIButton
+	
+	同时显示两张图片，背景图片内容图片  不用考虑了，选择UIBtton
+
 
 
 
