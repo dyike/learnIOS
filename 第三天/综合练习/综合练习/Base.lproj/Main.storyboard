@@ -46,7 +46,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="0Ms-dh-fOj" id="ZE8-X1-fTr"/>
+                        <outlet property="addButton" destination="SBV-40-xKM" id="Ifb-Dr-qzH"/>
                         <outlet property="removeButton" destination="0Ms-dh-fOj" id="FFk-iE-qij"/>
                         <outlet property="shopCarView" destination="Dq0-K1-YWF" id="zvj-l6-r5P"/>
                     </connections>

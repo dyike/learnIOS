@@ -13,7 +13,7 @@
 // 购物车
 @property (weak, nonatomic) IBOutlet UIView *shopCarView;
 // 全局下标
-@property (nonatomic, assign) NSInteger index;
+//@property (nonatomic, assign) NSInteger index;
 // 添加按钮
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 // 删除按钮
@@ -27,7 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     // 给下标赋值
-    self.index = 0;
+//    self.index = 0;
     // 裁剪多余的部分 不可取
     //self.shopCarView.clipsToBounds = YES;
 }
