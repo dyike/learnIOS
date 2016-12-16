@@ -19,9 +19,39 @@
 // 删除按钮
 @property (weak, nonatomic) IBOutlet UIButton *removeButton;
 
+@property (nonatomic, strong) NSArray *dataArr;
+
 @end
 
 @implementation ViewController
+/**
+ 懒加载作用： 
+ 1.用到的时候再加载
+ 2.全局只会加载一次
+ 3.全局都可以使用
+ 
+ 过程：
+ 1. 重写成员变量的get方法。
+ 2. 在get方法中判断：是否为空，为空加载数据，不为空，直接返回数据。
+ 
+ */
+- (NSArray *)dataArr {
+    if (_dataArr == nil) {
+        // 加载数据
+        self.dataArr = @[
+                     @{@"name":@"包1",@"icon":@"11"},
+                     @{@"name":@"包2",@"icon":@"22"},
+                     @{@"name":@"包3",@"icon":@"33"},
+                     @{@"name":@"包4",@"icon":@"44"},
+                     @{@"name":@"包5",@"icon":@"55"},
+                     @{@"name":@"包6",@"icon":@"66"},
+                     @{@"name":@"包7",@"icon":@"77"},
+                     @{@"name":@"包8",@"icon":@"88"},
+                     @{@"name":@"包9",@"icon":@"99"},
+                     ];
+    }
+    return _dataArr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +60,18 @@
 //    self.index = 0;
     // 裁剪多余的部分 不可取
     //self.shopCarView.clipsToBounds = YES;
+//    NSArray<NSDictionary *> *dataArr = @[
+//                                         @{@"name":@"包1",@"icon":@"11"},
+//                                         @{@"name":@"包2",@"icon":@"22"},
+//                                         @{@"name":@"包3",@"icon":@"33"},
+//                                         @{@"name":@"包4",@"icon":@"44"},
+//                                         @{@"name":@"包5",@"icon":@"55"},
+//                                         @{@"name":@"包6",@"icon":@"66"},
+//                                         @{@"name":@"包7",@"icon":@"77"},
+//                                         @{@"name":@"包8",@"icon":@"88"},
+//                                         @{@"name":@"包9",@"icon":@"99"},
+//                                         ];
+//    self.dataArr = dataArr;
 }
 
 // 添加到购物车
@@ -91,19 +133,27 @@
 //    titleLabel.text = titleNames[index];
     
     // 方式三：（数组+字典)
-    NSArray<NSDictionary *> *dataArr = @[
-                                         @{@"name":@"包1",@"icon":@"11"},
-                                         @{@"name":@"包2",@"icon":@"22"},
-                                         @{@"name":@"包3",@"icon":@"33"},
-                                         @{@"name":@"包4",@"icon":@"44"},
-                                         @{@"name":@"包5",@"icon":@"55"},
-                                         @{@"name":@"包6",@"icon":@"66"},
-                                         @{@"name":@"包7",@"icon":@"77"},
-                                         @{@"name":@"包8",@"icon":@"88"},
-                                         @{@"name":@"包9",@"icon":@"99"},
-                                        ];
+    
+    // 懒加载
+    /*
+    if (self.dataArr == nil) {
+        self.dataArr = @[
+                         @{@"name":@"包1",@"icon":@"11"},
+                         @{@"name":@"包2",@"icon":@"22"},
+                         @{@"name":@"包3",@"icon":@"33"},
+                         @{@"name":@"包4",@"icon":@"44"},
+                         @{@"name":@"包5",@"icon":@"55"},
+                         @{@"name":@"包6",@"icon":@"66"},
+                         @{@"name":@"包7",@"icon":@"77"},
+                         @{@"name":@"包8",@"icon":@"88"},
+                         @{@"name":@"包9",@"icon":@"99"},
+                         ];
+    }
+     */
+    
+    
     // 设置数据
-    NSDictionary *dict = dataArr[index];
+    NSDictionary *dict = self.dataArr[index];
     iconView.image = [UIImage imageNamed:dict[@"icon"]];
     titleLabel.text = dict[@"name"];
     
