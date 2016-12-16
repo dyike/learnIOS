@@ -55,14 +55,57 @@
     CGFloat y = (vMargin + height) * (index / allCols);
     
     /***************2创建一个商品*****************/
-    // 创建商品的view
+    // 1创建商品的view
     UIView *shopView = [[UIView alloc] init];
-    // 设置frame
+    // 2设置frame
     shopView.frame = CGRectMake(x, y, width, height);
-    // 设置背景颜色
+    // 3设置背景颜色
     shopView.backgroundColor = [UIColor greenColor];
-    // 添加到购物车view
+    // 4添加到购物车view
     [self.shopCarView addSubview:shopView];
+    // 5创建商品的UIImageView对象
+    UIImageView *iconView = [[UIImageView alloc] init];
+    iconView.frame = CGRectMake(0, 0, width, width);
+    iconView.backgroundColor = [UIColor blueColor];
+    [shopView addSubview:iconView];
+    
+    
+    // 6 创建商品的标题对象
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.frame = CGRectMake(0, width, width, height - width);
+    titleLabel.backgroundColor = [UIColor yellowColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;   //居中
+    [shopView addSubview: titleLabel];
+    
+    /***************4设置数据*****************/
+    // 数值数据
+    // 方式一： （不可取，数据都是一样的）
+//    iconView.image = [UIImage imageNamed:@"11"];
+//    titleLabel.text = @"单件包";
+    
+    // 方式二：（数组）
+//    NSArray<NSString *> *imageNames = @[@"11", @"22",@"33",@"44", @"55", @"66", @"77", @"88", @"99"];
+//    NSArray<NSString *> *titleNames = @[@"包1", @"包2", @"包3", @"包4", @"包5", @"包6", @"包7", @"包8", @"包9"];
+    
+//    iconView.image = [UIImage imageNamed:imageNames[index]];
+//    titleLabel.text = titleNames[index];
+    
+    // 方式三：（数组+字典)
+    NSArray<NSDictionary *> *dataArr = @[
+                                         @{@"name":@"包1",@"icon":@"11"},
+                                         @{@"name":@"包2",@"icon":@"22"},
+                                         @{@"name":@"包3",@"icon":@"33"},
+                                         @{@"name":@"包4",@"icon":@"44"},
+                                         @{@"name":@"包5",@"icon":@"55"},
+                                         @{@"name":@"包6",@"icon":@"66"},
+                                         @{@"name":@"包7",@"icon":@"77"},
+                                         @{@"name":@"包8",@"icon":@"88"},
+                                         @{@"name":@"包9",@"icon":@"99"},
+                                        ];
+    // 设置数据
+    NSDictionary *dict = dataArr[index];
+    iconView.image = [UIImage imageNamed:dict[@"icon"]];
+    titleLabel.text = dict[@"name"];
     
     
     /***************3设置按钮的状态*****************/
