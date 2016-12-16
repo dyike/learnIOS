@@ -37,8 +37,24 @@ int main(int argc, const char * argv[]) {
 //            NSLog(@"写入成功");
 //        }
         
-        NSArray *persons = [NSArray arrayWithContentsOfFile:@"/Users/ityike/Desktop/persons.plist"];
-        NSLog(@"%@", persons);
+//        NSArray *persons = [NSArray arrayWithContentsOfFile:@"/Users/ityike/Desktop/persons.plist"];
+//        NSLog(@"%@", persons);
+        
+        NSArray *dataArr = @[
+                             @{@"name":@"包1",@"icon":@"11"},
+                             @{@"name":@"包2",@"icon":@"22"},
+                             @{@"name":@"包3",@"icon":@"33"},
+                             @{@"name":@"包4",@"icon":@"44"},
+                             @{@"name":@"包5",@"icon":@"55"},
+                             @{@"name":@"包6",@"icon":@"66"},
+                             @{@"name":@"包7",@"icon":@"77"},
+                             @{@"name":@"包8",@"icon":@"88"},
+                             @{@"name":@"包9",@"icon":@"99"},
+                             ];
+        BOOL flag = [dataArr writeToFile:@"/Users/ityike/Desktop/dataArr.plist" atomically:YES];
+        if (flag) {
+            NSLog(@"写入成功");
+        }
         
         
     }
