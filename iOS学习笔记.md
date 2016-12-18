@@ -116,6 +116,26 @@ UIImageView是一个控件，用来显示Image的对象。
 
 
 先打一个断点 执行po NSHomeDirectory()查看模拟器的位置
+
+
+
+
+
+------
+
+
+Swift部分
+
+### guard的使用
+
+guard语句必须带有else语句。
+
+```swift
+guard 条件表达式 else {
+	// 处理语句
+   break
+}
+```
 	
 
 
