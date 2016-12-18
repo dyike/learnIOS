@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let p = Person(name: "ityike", age: 18)
-        
+        print(p?.name)
         // URL 的构造函数可以返回nil
         // 构造函数就是实例化对象的
         // init?(string: String) -> 构造函数可以返回 nil
