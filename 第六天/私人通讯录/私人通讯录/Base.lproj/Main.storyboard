@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="v4T-iW-3GQ" detailTextLabel="Cg6-LM-gLK" style="IBUITableViewCellStyleSubtitle" id="T90-xS-kRv">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellId" textLabel="v4T-iW-3GQ" detailTextLabel="Cg6-LM-gLK" style="IBUITableViewCellStyleSubtitle" id="T90-xS-kRv">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T90-xS-kRv" id="EiP-Co-X2H">
@@ -49,10 +49,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="联系人列表" id="NcA-rU-dQ4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xIs-56-7fd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xIs-56-7fd">
+                            <connections>
+                                <action selector="newPerson:" destination="b0i-Cz-A1f" id="Gha-5U-9uN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="IBJ-Z6-phU" kind="show" id="U5o-qx-Mk8"/>
+                        <segue destination="IBJ-Z6-phU" kind="show" identifier="list2detail" id="U5o-qx-Mk8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DL9-Zz-EgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -130,8 +134,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="详情" id="NCd-fO-9xV">
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="Omx-nl-khe"/>
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="Omx-nl-khe">
+                            <connections>
+                                <action selector="savePerson:" destination="IBJ-Z6-phU" id="6Wd-we-LbZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameText" destination="Tu3-89-AnD" id="3Yc-CA-xv0"/>
+                        <outlet property="phoneText" destination="jQV-BW-qeK" id="8RL-eE-vdR"/>
+                        <outlet property="titleText" destination="LuB-0m-fPs" id="tJ5-f1-HV3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0H-se-ofg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
