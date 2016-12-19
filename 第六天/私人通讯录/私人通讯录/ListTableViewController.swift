@@ -34,16 +34,15 @@ class ListTableViewController: UITableViewController {
             
             var arrayM = [Person]()
             
-//            for i in 0..<20 {
-//                let p = Person()
-//                p.name = "ityike - \(i)"
-//                p.phone = "1860" + String(format: "%06d", arc4random_uniform(100000))
-//                p.title = "developer"
-//                
-//                arrayM.append(p)
-//            }
-            let p = Person()
-            arrayM.append(p)
+            for i in 0..<20 {
+                let p = Person()
+                p.name = "ityike - \(i)"
+                p.phone = "1860" + String(format: "%06d", arc4random_uniform(100000))
+                p.title = "developer"
+                
+                arrayM.append(p)
+            }
+
             // 主线程回调
             DispatchQueue.main.async(execute: {
                 // 回调, 执行闭包
@@ -69,10 +68,11 @@ class ListTableViewController: UITableViewController {
                 self.tableView.reloadRows(at: [IndexPath], with: .automatic)
             }
         } else {
+            // 这里有循环引用
             // 新建个人记录
-            vc.completionCallBack = {
+            vc.completionCallBack = { [weak vc] in
                 // 1 获取明细控制器的Person
-                guard let p = vc.person else {
+                guard let p = vc?.person else {
                     return
                 }
                 // 2 插入到数据的顶部
