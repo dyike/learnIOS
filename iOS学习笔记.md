@@ -136,7 +136,26 @@ guard 条件表达式 else {
    break
 }
 ```
-	
+
+
+
+### deinit
+
+```swift
+// 没有func -> 不让调用
+// 没有（）-> 不让重载
+// 在对象被销毁前自动调用
+// 类似于OC 的dealloc
+deinit {
+	// 1.跟踪对象的销毁
+	// 2.必须释放
+	/*
+	通知，不释放不会崩溃，会泄露
+	KVO 不释放会崩溃
+	NSTimer / CADisplayLink
+	*/
+}
+```	
 
 
 
