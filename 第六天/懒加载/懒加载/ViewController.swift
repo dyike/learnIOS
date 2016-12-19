@@ -12,8 +12,13 @@ class ViewController: UIViewController {
     
 //    var label: DemoLabel?
     
-    // 初始化label 并且分配了空间
-    var label = DemoLabel()
+    // 初始化label 并且分配了空间, 会提前创建
+    // 在移动开发中，延迟加载减少内存消耗
+    // 懒加载 - lazy
+    
+    // 延迟创建
+    // 最大的好处 -> 解除解包的烦恼
+    lazy var label: DemoLabel = DemoLabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
