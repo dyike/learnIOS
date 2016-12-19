@@ -18,7 +18,18 @@ class ViewController: UIViewController {
     
     // 延迟创建
     // 最大的好处 -> 解除解包的烦恼
-    lazy var label: DemoLabel = DemoLabel()
+    //lazy var label: DemoLabel = DemoLabel()
+    
+    // 懒加载本质上是一个闭包
+    // 完整写法：
+    // {} 包装代码 () 执行代码
+    // 日常开发不这样写！
+    // 闭包中如果出现self. 还需要注意循环引用。
+    lazy var label = { () -> DemoLabel in
+        let label1 = DemoLabel()
+        // 设置 label 的属性
+        return label1
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
