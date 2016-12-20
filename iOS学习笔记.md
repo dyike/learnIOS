@@ -161,6 +161,9 @@ deinit {
 限定作用域的时候，可以加上关键字 private
 
 
+https://pan.baidu.com/play/video#video/path=%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%2FSwift%203.0%2Fswift3.0%2F04-Swift-%E7%AC%AC03%E5%A4%A9(%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA)%2F19-%E5%85%B3%E4%BA%8E%E7%AE%80%E5%8E%86%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%86%E8%8A%82.mp4&t=18
+
+
 
 
 
